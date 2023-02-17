@@ -4,19 +4,19 @@ using project.Model;
 namespace PROJECT.Controllers;
 
 [ApiController]
-[Route("[controller]")]
+[Route("/api/[controller]")]
 public class EquityController : ControllerBase
 {
-    private readonly DeltaContext _dbcontext;
+    private readonly DeltaContext dbcontext;
 
     public EquityController(DeltaContext dbcontext)
     {
-        this._dbcontext = dbcontext;
+        this.dbcontext = dbcontext;
     }
 
     [HttpGet(Name = "GetEquity")]
     public IActionResult GetEquity(){
-        var db = this._dbcontext.Equities;
-        return Ok(db);
+        return Ok(this.dbcontext.Equities.ToList());
     }
+
 }
