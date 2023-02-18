@@ -52,7 +52,7 @@ public class BondController : ControllerBase
     }
     /////////////////////////////////////////////////////////////////////////////
 
-    [HttpPut]
+    [HttpPatch]
     [Route("{id}")]
     public async Task<IActionResult> UpdateBond([FromRoute] int id, Bond bond)
     {
