@@ -1,4 +1,5 @@
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.JsonPatch;
 using project.Model;
 
 namespace PROJECT.Controllers;
@@ -127,15 +128,75 @@ public class EquityController : ControllerBase
             SecurityName = equity.SecurityName,
             SecurityDescription = equity.SecurityDescription
         };
-        var updateEquityInfo = await dbcontext.Equities.FindAsync(id);
+        var u = await dbcontext.Equities.FindAsync(id);
 
-        if (updateEquityInfo != null)
+        if (u != null)
         {
-            updateEquityInfo.SecurityDescription = equity.SecurityDescription;
-            updateEquityInfo.SecurityName = equity.SecurityName;
+            u.SecurityName = equity.SecurityName;
+            u.SecurityDescription =  equity.SecurityDescription;
+            u.HasPosition = equity.HasPosition;
+            u.IsActiveSecurity = equity.IsActiveSecurity;
+            u.LotSize = equity.LotSize;
+            u.BbgUniqueName  = equity.BbgUniqueName;
+            u.Cusip = equity.Cusip;
+            u.Isin = equity.Isin;
+            u.Sedol = equity.Sedol;
+            u.BloombergTicker = equity.BloombergTicker;
+            u.BloombergUniqueId = equity.BloombergUniqueId;
+            u.BbgGlobalId = equity.BbgGlobalId;
+            u.TickerAndExchange = equity.TickerAndExchange;
+            u.IsAdrFlag = equity.IsAdrFlag;
+            u.AdrUnderlyingTicker = equity.AdrUnderlyingTicker;
+            u.AdrUnderlyingCurrency = equity.AdrUnderlyingCurrency;
+            u.SharesPerAdr = equity.SharesPerAdr;
+            u.IpoDate = equity.IpoDate;
+            u.PricingCurrency = equity.PricingCurrency;
+            u.SettleDays = equity.SettleDays;
+            u.TotalSharesOutstanding = equity.TotalSharesOutstanding;
+            u.VotingRightsPerShare = equity.VotingRightsPerShare;
+            u.AverageVolume20d = equity.AverageVolume20d;
+            u.Beta = equity.Beta;
+            u.ShortInterest = equity.ShortInterest;
+            u.ReturnYtd = equity.ReturnYtd;
+            u.Volatility90d = equity.Volatility90d;
+            u.PfAssetClass= equity.PfAssetClass;
+            u.PfCountry = equity.PfCountry;
+            u.PfCreditRating = equity.PfCreditRating;
+            u.PfCurrency = equity.PfCurrency;
+            u.PfInstrument = equity.PfInstrument;
+            u.PfLiquidityProfile = equity.PfLiquidityProfile;
+            u.PfMaturity = equity.PfMaturity;
+            u.PfNaicsCode  = equity.PfNaicsCode;
+            u.PfRegion = equity.PfRegion;
+            u.PfSector = equity.PfSector;
+            u.PfSubAssetClass = equity.PfSubAssetClass;
+            u.CountryOfIssuance = equity.CountryOfIssuance;
+            u.Exchange = equity.Exchange;
+            u.Issuer = equity.Issuer;
+            u.IssueCurrency = equity.IssueCurrency;
+            u.TradingCurrency = equity.TradingCurrency;
+            u.BbgIndustrySubGroup = equity.BbgIndustrySubGroup;
+            u.BloombergIndustryGroup = equity.BloombergIndustryGroup;
+            u.BloombergSector = equity.BloombergSector;
+            u.CountryOfIncorporation = equity.CountryOfIncorporation;
+            u.RiskCurrency = equity.RiskCurrency;
+            u.OpenPrice = equity.OpenPrice;
+            u.ClosePrice = equity.ClosePrice;
+            u.Volume = equity.Volume;
+            u.LastPrice = equity.LastPrice;
+            u.AskPrice = equity.AskPrice;
+            u.BidPrice = equity.BidPrice;
+            u.PeRatio = equity.PeRatio;
+            u.DividendDeclaredDate  = equity.DividendDeclaredDate ;
+            u.DividendExDate = equity.DividendExDate;
+            u.DividendRecordDate = equity.DividendRecordDate;
+            u.DividendPayDate = equity.DividendPayDate;
+            u.DividendAmount = equity.DividendAmount;
+            u.Frequency = equity.Frequency;
+            u.DividendType = equity.DividendType;
             await dbcontext.SaveChangesAsync();
 
-            return Ok(updateEquityInfo);
+            return Ok(u);
         }
         return NotFound();
     }
