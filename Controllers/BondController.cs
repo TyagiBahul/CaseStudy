@@ -21,6 +21,14 @@ public class BondController : ControllerBase
         return Ok(db);
     }
 
+    [HttpGet("columns")]
+    public IActionResult GetColumns(){
+        var colNames = typeof(Bond).GetProperties()
+                        .Select(property => property.Name)
+                        .ToArray();
+        return Ok(colNames);
+    }
+
     [HttpGet]
     [Route("{id}")]
     public async Task<IActionResult> GetBond([FromRoute] int id)
