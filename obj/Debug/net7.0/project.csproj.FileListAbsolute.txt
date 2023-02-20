@@ -130,3 +130,7 @@ C:\Users\bjoseph\Documents\GitHub\CaseStudy\obj\Debug\net7.0\refint\project.dll
 C:\Users\bjoseph\Documents\GitHub\CaseStudy\obj\Debug\net7.0\project.pdb
 C:\Users\bjoseph\Documents\GitHub\CaseStudy\obj\Debug\net7.0\project.genruntimeconfig.cache
 C:\Users\bjoseph\Documents\GitHub\CaseStudy\obj\Debug\net7.0\ref\project.dll
+C:\Users\bjoseph\Documents\GitHub\CaseStudy\bin\Debug\net7.0\Microsoft.AspNetCore.JsonPatch.dll
+C:\Users\bjoseph\Documents\GitHub\CaseStudy\bin\Debug\net7.0\Microsoft.AspNetCore.Mvc.NewtonsoftJson.dll
+C:\Users\bjoseph\Documents\GitHub\CaseStudy\bin\Debug\net7.0\Newtonsoft.Json.dll
+C:\Users\bjoseph\Documents\GitHub\CaseStudy\bin\Debug\net7.0\Newtonsoft.Json.Bson.dll
